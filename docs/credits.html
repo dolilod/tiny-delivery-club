@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="id">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>Kredit</title><link rel="stylesheet" href="./styles.css"></head>
+<body><main class="credits"><header><a id="back" href="./index.html"></a><button id="language"></button></header><h1 id="heading"></h1><div id="notices"></div><section id="original-work"><h2></h2><p></p></section><ul id="links"></ul><section id="models"></section></main>
+<script src="./content.js"></script>
+<script>
+(() => {
+  const C=window.CONTENT, data=C.credits;
+  let language=C.languages[0];
+  for(const [key,value] of Object.entries(C.theme))document.documentElement.style.setProperty('--'+key,value);
+  function render(){
+    document.documentElement.lang=language;
+    document.title=data.title[language];
+    document.getElementById('heading').textContent=data.title[language];
+    document.getElementById('back').textContent=data.back[language];
+    document.getElementById('language').textContent=C.strings[language].language;
+    document.getElementById('notices').replaceChildren(...data.paragraphs.map(item=>{const p=document.createElement('p');p.textContent=item[language];return p;}));
+    document.querySelector('#original-work h2').textContent=C.originalWork.title[language];
+    document.querySelector('#original-work p').textContent=C.originalWork[language];
+    document.getElementById('links').replaceChildren(...data.links.map(item=>{const li=document.createElement('li'),a=document.createElement('a');a.href=item.href;a.textContent=item[language];li.append(a);return li;}));
+    document.getElementById('models').replaceChildren(...Object.values(C.models).map(model=>{
+      const section=document.createElement('section'),heading=document.createElement('h2'),prompt=document.createElement('p'),source=document.createElement('a'),license=document.createElement('a'),changes=document.createElement('p');
+      heading.textContent=model.id;prompt.textContent=model.prompt;
+      source.href=model.source;source.textContent=model.source;
+      license.href='https://creativecommons.org/licenses/by/4.0/';license.textContent='Scenario — CC BY 4.0';
+      changes.textContent=C.assetChanges[language];
+      section.append(heading,prompt,source,document.createElement('br'),license,changes);return section;
+    }));
+  }
+  document.getElementById('language').addEventListener('click',()=>{language=C.languages[(C.languages.indexOf(language)+1)%C.languages.length];render();});
+  render();
+})();
+</script></body></html>

@@ -1,0 +1,5 @@
+node_modules/
+test-artifacts/
+inputs/
+WORKER-BRIEF*.md
+tools/downloads/

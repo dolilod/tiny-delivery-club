@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="id">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f8f4e9"><link rel="icon" href="data:,"><title>Klub Kurir Kecil</title><link rel="stylesheet" href="./styles.css"></head>
+<body><main>
+<header><div><p class="eyebrow">TINY DELIVERY CLUB</p><h1 id="title"></h1><p id="subtitle"></p></div><div id="settings"></div></header>
+<section class="play-layout"><div class="board-column"><div class="hud"><span id="level"></span><strong id="counter"></strong><span id="treasure"></span><span id="hearts"></span></div><div id="board" role="img" aria-label="Papan permainan / Game board"><div id="boss-status" hidden><strong id="boss-label"></strong><progress id="boss-health"></progress></div></div></div>
+<aside><div class="ticket"><p class="eyebrow" id="route-name"></p><p id="message" role="status" aria-live="polite"></p><p id="treasure-result" hidden></p><div class="actions"><button id="start"></button><button id="pause" hidden></button><button id="next" hidden></button><button id="retry" hidden></button><button id="replay" hidden></button></div></div><button id="stun" hidden></button>
+<div class="dpad" aria-label="Movement"><button data-dir="up">▲</button><button data-dir="left">◀</button><button data-dir="down">▼</button><button data-dir="right">▶</button></div><p id="controls" class="hint"></p></aside></section>
+<footer><span>01 — DELIVERY DEPARTMENT</span><a id="credits" href="./credits.html"></a></footer>
+</main><script type="importmap">{"imports":{"three":"./vendor/three/three.module.min.js","three/addons/":"./vendor/three/addons/"}}</script><script src="./content.js"></script><script type="module" src="./game.js"></script></body></html>
